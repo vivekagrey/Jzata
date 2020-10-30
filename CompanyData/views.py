@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-import pandas as pd
+
 from django.http import HttpResponse
 from .models import Basic
 
