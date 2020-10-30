@@ -3,6 +3,7 @@ from django.views.generic import ListView
 
 from django.http import HttpResponse
 from .models import Basic
+from .news_article import google_news_links
 
 def create(request):
     
@@ -19,8 +20,8 @@ def search(request):
     s=s.strip()
     
     s1=Basic.objects.all().filter(name__contains=s)
-   
-    return render(request,"show.html",{'s':s1})
+    links = google_news_links(s)
+    return render(request,"show.html",{'s':s1, 'l':links})
 
 def homepage(request):
     return render(request,"home.html")
