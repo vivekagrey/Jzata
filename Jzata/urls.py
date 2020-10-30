@@ -12,5 +12,5 @@ urlpatterns = [
     path('32411',views.base),
     path('base',view.create),
     path('search',view.search,name="search"),
-    path('',view.king)
+    path('',view.homepage)
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

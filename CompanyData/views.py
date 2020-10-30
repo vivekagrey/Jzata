@@ -11,6 +11,8 @@ def create(request):
     return HttpResponse(s)
 
 
+def Build_Database(request):
+    pass
 
 def search(request):
     s=request.POST.get('temp')
@@ -20,7 +22,7 @@ def search(request):
    
     return render(request,"show.html",{'s':s1})
 
-def king(request):
+def homepage(request):
     return render(request,"home.html")
     
 
