@@ -22,5 +22,3 @@ class Basic(models.Model):
     def __str__(self):
         return self.name
 
-class crack(models.Model):
-    name=models.ImageField(upload_to="image")

@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-import newspaper
-import time
-from textblob import TextBlob
+#import newspaper
+#import time
+#from textblob import TextBlob
 
 
 #query = input("enter name to search: ").split()
@@ -14,9 +14,6 @@ def news_sentiment(text):
     #print(analysis.translate(to="hi"))
     print("ANALYSING SENTIMENTS...\n", analysis.sentiment)
 def google_news_links(term):
-    user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
-    config = newspaper.Config()
-    config.browser_user_agent = user_agent
     url = "https://www.google.com/search?q={0}&source=lnms&tbm=nws".format(term)
     print(url)
     s, f = 0, 0
@@ -41,6 +38,9 @@ def google_news_links(term):
             print(e)
     return refined_links
 def news_extraction(links):
+    user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+    config = newspaper.Config()
+    config.browser_user_agent = user_agent
     try:
         for link in links:
             article_name = newspaper.Article(url=link, config=config)
