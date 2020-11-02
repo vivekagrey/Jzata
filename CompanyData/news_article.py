@@ -4,10 +4,6 @@ from bs4 import BeautifulSoup
 #import time
 #from textblob import TextBlob
 
-
-#query = input("enter name to search: ").split()
-#term = "+".join(query)
-
 def news_sentiment(text):
     analysis = TextBlob(text)
     #print(analysis.detect_language())
@@ -16,7 +12,6 @@ def news_sentiment(text):
 def google_news_links(term):
     url = "https://www.google.com/search?q={0}&source=lnms&tbm=nws".format(term)
     print(url)
-    s, f = 0, 0
     source = requests.get(url)
     soup = BeautifulSoup(source.text,"lxml")
     unrefined_links = soup.find_all('div', {'class':"kCrYT"})
@@ -32,9 +27,6 @@ def google_news_links(term):
             link = link.split('&sa=U&ved')[0]
             refined_links.append(link)
     except Exception as e:
-            f+=1
-            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@FAILED@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", f)
-            print("EXCEPTION", href, "\n", link)
             print(e)
     return refined_links
 def news_extraction(links):
