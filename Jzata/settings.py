@@ -66,9 +66,9 @@ WSGI_APPLICATION = 'Jzata.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'jzatadb',
-        'USER':'jzata_user',
-        'PASSWORD':'jzata',
+        'NAME':'Jzata',
+        'USER':'postgres',
+        'PASSWORD':'postgresql',
         'HOST':'localhost'
     
     }
@@ -118,4 +118,4 @@ STATIC_ROOT =os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL='/media/'
 
-MEDIA_ROOT =os.path.join(BASE_DIR,"media_root") 
+MEDIA_ROOT =os.path.join(BASE_DIR,"media_root")

@@ -10,7 +10,9 @@ def news_sentiment(text):
     #print(analysis.translate(to="hi"))
     print("ANALYSING SENTIMENTS...\n", analysis.sentiment)
 def google_news_links(term):
-    url = "https://www.google.com/search?q={0}&source=lnms&tbm=nws".format(term)
+    query = term.split()
+    query = "+".join(query)
+    url = "https://www.google.com/search?q={0}&source=lnms&tbm=nws".format(query)
     print(url)
     source = requests.get(url)
     soup = BeautifulSoup(source.text,"lxml")

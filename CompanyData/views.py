@@ -17,8 +17,7 @@ def Build_Database(request):
 
 def search(request):
     s=request.POST.get('temp')
-    s=s.strip()
-    
+    s=s.strip() 
     s1=Basic.objects.all().filter(name__contains=s)
     links = google_news_links(s)
     return render(request,"show.html",{'s':s1, 'l':links})
