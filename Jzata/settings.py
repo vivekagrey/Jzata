@@ -26,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'CompanyData'
+    'CompanyData',
+    'Emailotp',
+    
 ]
 
 MIDDLEWARE = [
@@ -60,15 +62,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Jzata.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'jzatadb',
-        'USER':'jzata_user',
-        'PASSWORD':'jzata',
+        'NAME':'Jzata',
+        'USER':'postgres',
+        'PASSWORD':'shakti',
         'HOST':'localhost'
     
     }
@@ -119,3 +120,13 @@ STATIC_ROOT =os.path.join(BASE_DIR,'assets')
 MEDIA_URL='/media/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR,"media_root") 
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'theshaktiyadav@gmail.com'
+EMAIL_HOST_PASSWORD = '9319428987'
+EMAIL_USE_TLS = True
+

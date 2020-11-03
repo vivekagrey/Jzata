@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+
+
+{% block content  %}
+<body>
+
+
+
+<h1> Pricing  page </h1>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-4">
+        <h1> Price :100</h1>
+        <a href="{% url 'signup'  %}"  <button type="button" class="btn btn-primary">price 840</button></a>
+    </div>
+    <div class="col-4">
+        <h1>Price :200</h1>
+        <a href="{% url 'signup'  %}" <button type="button" class="btn btn-primary">Primary</button> </div></a>
+
+    </div>
+    <div class="col-4">
+        <h1>Price :300</h1>
+        <a href="{% url 'signup'  %}"    <button type="button" class="btn btn-primary">Success</button> </a>
+    </div>
+  </div>
+
+  </body>
+
+{% endblock %}

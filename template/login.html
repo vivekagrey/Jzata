@@ -1,0 +1,51 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+		<body>
+    
+    
+			<div class="back">
+				<div class="container-fluid">
+					<br>
+					<div class="form-box pb-3">
+						{% if messages %}
+						
+						{% for mess in messages%}
+							<div class="alert alert-success">
+							<strong>Success!</strong> Indicates a successful or positive action.
+							</div>
+						{% endfor%}
+			
+					{% endif %}
+			
+						<form  method="POST">
+							{% csrf_token %}
+								<fieldset class="form-group">
+									<legend class="border-bottom py-2">log In </legend>
+									username<input type="text" name="t1"/> <br/>
+									lastname<input type="text" name="t2"/><br/>
+								</fieldset>
+								<div class="form-group">
+								<button class="btn btn-outline-info" type="submit">Log in </button> </div>
+							
+							<a href="{% url 'signup' %}">create link to signup </a>
+			
+						</form>
+					<br>
+					<div>
+					 <div class="col-md">   
+						</div>
+	
+
+</body>
+</html>
