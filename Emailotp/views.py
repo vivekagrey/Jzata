@@ -11,6 +11,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth import logout
+
 def signup(request):
 
     if request.method=='POST':
@@ -19,11 +20,11 @@ def signup(request):
 
         if get_otp:
             get_usr =request.POST.get('usr')
-            print("anjali")
+        
             usr=User.objects.get(username=get_usr)
-            print("mia")
+            
             if not usr.is_active:
-                print("halifa")
+                
                 if int(get_otp) == UserOTP.objects.filter(user=usr).last().otp:
                     usr.is_active=True
                     usr.save()

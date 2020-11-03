@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'CompanyData',
     'Emailotp',
     
+    
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,3 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'theshaktiyadav@gmail.com'
 EMAIL_HOST_PASSWORD = '9319428987'
 EMAIL_USE_TLS = True
-
