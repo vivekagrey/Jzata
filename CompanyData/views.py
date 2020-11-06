@@ -3,7 +3,7 @@ from django.views.generic import ListView
 
 from django.http import HttpResponse
 from .models import Basic
-from .news_article import google_news_links
+from .news_article import google_news_links, news_extraction
 
 from .form import Login
 from django.contrib.auth import authenticate ,login
@@ -23,8 +23,9 @@ def search(request):
     s=request.POST.get('temp')
     s=s.strip() 
     s1=Basic.objects.all().filter(name__contains=s)
-    links = google_news_links(s)
-    return render(request,"show.html",{'s':s1, 'l':links})
+    pos_news, neg_news = news_extraction(s)
+
+    return render(request,"show.html",{'s':s1, 'pos_news':pos_news,'neg_news':neg_news})
 
 def homepage(request):
     return render(request,"home.html")

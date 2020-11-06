@@ -70,7 +70,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'Jzata',
         'USER':'postgres',
-        'PASSWORD':'shakti',
+        'PASSWORD':'postgresql',
         'HOST':'localhost'
     
     }
