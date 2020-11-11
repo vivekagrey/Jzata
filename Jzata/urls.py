@@ -8,11 +8,17 @@ from CompanyData import views as view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('32411',views.base),
     path('base',view.create),
     path('search',view.search,name="search"),
-    path('',view.homepage),
+    path('block',view.homepage),
     path('signup',include('Emailotp.urls')),
     path('price',view.page,name="price"),
+    path('',views.home,name="home"),
+    path('plane',views.plane,name="plane"),
+    path('gdpr',views.gdpr,name="gdpr"),
+    path('privacypolicy',views.privacy,name="privacy"),
+    path('service',views.service,name="service")
+
     
+  
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -27,9 +27,13 @@ def signup(request):
                 
                 if int(get_otp) == UserOTP.objects.filter(user=usr).last().otp:
                     usr.is_active=True
+                    s=str(request.session['username'])
+                    s1=str(request.session['password'])
+                    s=s.strip()
+                    s1=s1.strip()
                     usr.save()
-                    messages.success(request,f'Account is created for {usr}')
-                    return redirect("login")
+                    user=authenticate(username=request.POST.get('s'),password=request.POST.get('s1'))
+                    return redirect("plane")
                 else:
                     messages.error(request,f'Enter wrong otp')
                     return render(request,'signup.html',{'otp':True ,'usr':usr})
@@ -39,7 +43,10 @@ def signup(request):
             form.save()
             username =form.cleaned_data.get('username')
             name=form.cleaned_data.get('name').split(' ')
-
+            request.session['username']=username.strip()
+            s1=form.cleaned_data.get('password1')
+            s1=s1.strip()
+            request.session['password']=s1
             usr=User.objects.get(username=username)
             usr.email=username
             usr.first_name=name[0]
@@ -62,6 +69,8 @@ def signup(request):
             )             
             messages.success(request,f'Account is Created For {username}')
             return render(request,'signup.html',{'otp':True,'usr':usr})
+    
+    
     else:
         form=Signupform()
     print("welcome 2")
@@ -82,8 +91,9 @@ def login(request):
             print("welcome to this page")
             return render(request,'home.html')         
         else:
+            error=True
             print("not found")
-            return render(request,'home.html')  
+            return render(request,'login.html',{'error':error})  
     return render(request,'login.html')
 
 
