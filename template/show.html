@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 
-<head>
-    
-</head>
 
-<body>
-{% block content %}
+
+{% block content   %}
 <h1>POSITIVE NEWS ARTICLE LINKS</h1>
 {% for i in pos_news%}
     {{i.headline}}
@@ -58,10 +55,11 @@
     <br/>
     {{i.Industry_code}}
 
-{% endfor %}
+{% endfor content %}
+
 {% endblock %}
 
-</body>
+
 
 
 

@@ -38,7 +38,6 @@ def news_extraction_thread(link,pos_news,neg_news,news,config):
         article_name.download()
         article_name.parse()
         article_name.nlp()
-        #print(article_name.keywords)
         text = article_name.text
         polarity = news_sentiment(text)
         news = {"link":link, "headline":article_name.title,"date":article_name.publish_date, "summary":article_name.summary}
