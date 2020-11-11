@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView
 
 from django.http import HttpResponse
@@ -7,7 +7,7 @@ from .news_article import google_news_links, news_extraction
 
 from .form import Login
 from django.contrib.auth import authenticate ,login
-
+from django.contrib.auth.decorators import login_required
 
 def create(request):
     
@@ -57,3 +57,5 @@ def login(request):
     return render(request,"login.html")
     
 
+def plans(request):
+    return render(request,"plans.html")

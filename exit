@@ -1,0 +1,62 @@
+[33mcommit 42391928bd7c5a613758755f4720471617a44c6b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 98115e7 b45646c
+Author: vivekagrey <60984918+vivekagrey@users.noreply.github.com>
+Date:   Tue Nov 3 14:42:02 2020 +0530
+
+    Merge pull request #1 from vivekagrey/vivek
+    
+    news_article_updated
+
+[33mcommit b45646cfa6676f944bc170a728bae1cf43ef8993[m[33m ([m[1;31morigin/vivek[m[33m)[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Tue Nov 3 14:23:38 2020 +0530
+
+    news_article_updated
+
+[33mcommit 98115e7afa0f8b92bf02888c208262ab25df21f8[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Mon Nov 2 11:56:15 2020 +0530
+
+    some changes
+
+[33mcommit 21f3fd3cf68cd79d987964cbe93b27e5a3135bdc[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Sun Nov 1 19:29:40 2020 +0530
+
+    errors removed
+
+[33mcommit 99d0b2b504d5cfc744b8a2fa4fd71237c0892c84[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Fri Oct 30 23:34:15 2020 +0530
+
+    company news links done
+
+[33mcommit 6020a07128dd8d9f18b0b81df2f1601911351c32[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Fri Oct 30 23:16:33 2020 +0530
+
+    company news links done
+
+[33mcommit b5fc79869845c670c9cad7c6ddfbda85a1820c2e[m
+Author: shakti123456-gif <shakti.johnnette@gmail.com>
+Date:   Fri Oct 30 13:10:29 2020 +0530
+
+    intial commits
+
+[33mcommit 522ebb2931f76887533a736882207f240fb483d6[m
+Author: shakti123456-gif <shakti.johnnette@gmail.com>
+Date:   Fri Oct 30 11:44:30 2020 +0530
+
+    intial commit
+
+[33mcommit 9d6237ed08c83dc312268f3680d2a4931af0aa42[m
+Author: vivekagrey <vivek.14ben1074@abes.ac.in>
+Date:   Thu Oct 29 11:19:30 2020 +0530
+
+    project upload
+
+[33mcommit 82cb501fa86a48e77f58a04d993ef0a998d0008f[m
+Author: vivekagrey <60984918+vivekagrey@users.noreply.github.com>
+Date:   Thu Oct 29 11:04:19 2020 +0530
+
+    Initial commit

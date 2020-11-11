@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-  
-{%load static%}
-  <title></title>
-	<!-- Latest compiled and minified CSS -->
+	<title></title>
+{% load static %}
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -17,12 +15,24 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
-<style>
 
-</style>
-</head>
+
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
+  </head>
+
+
+{% block extrahead %}
+
+
+{% endblock %}
+
+
+
 <body>
+
 
 
 
@@ -35,16 +45,11 @@
   </button>
 
   <div class="collapse navbar-collapse " id="navbarNav">
-   
-<form class="form-inline my-2 my-lg-0">
-      <input class=" search " type="search" placeholder=" Search..." >
-      <!-- <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> -->
-      <button class="_button"><i class="fa fa-search " aria-hidden="true"></i></button>
-    </form>
+  
    
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ">
-        <a class="nav-link " href="#"><span class="nav-style">HOME</span>  </a>
+        <a class="nav-link " href="{% url 'home' %}"><span class="nav-style">HOME</span>  </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><span class="nav-style">PRODUCTS</span></a>
@@ -60,9 +65,12 @@
   </div>
   </div>
 </nav>
+
 {% block content %}
 
+
 {% endblock %}
+
 <footer>
   <div class="row">
     <div class="col-sm-3">

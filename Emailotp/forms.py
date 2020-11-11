@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class Signupform(UserCreationForm):
     name=forms.CharField(label=("fullname"))
     username=forms.EmailField(label=("Email"))
-    phoneno=forms.RegexField(regex=r'^\+?1?\d{9,12}$')
+    phone_no=forms.RegexField(regex=r'^\+?1?\d{9,12}$')
 
     class meta:
         model=User
