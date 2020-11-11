@@ -64,15 +64,10 @@ WSGI_APPLICATION = 'Jzata.wsgi.application'
 
 
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'Jzata',
-        'USER':'postgres',
-        'PASSWORD':'postgresql',
-        'HOST':'localhost'
-    
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
