@@ -1,5 +1,6 @@
 # Jzata
 # Running a django project
+# pip freeze > requirements.txt
 1.Fork and clone the repo
 2.Source a virtual environment
     -python virtualenv venv

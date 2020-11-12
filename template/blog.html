@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+
+
+{% load static  %}
+
+
+{% block extrahead %}
+
+
+
+{% endblock %}
+
+{% block main_body %}
+
+
+
+{% for i in object_list %}
+
+<div class="contanier-fluid">
+     <div class ="row">
+    <div class="card col-sm-6" style="width: 18rem">
+
+        <div class="card-body">
+        <h5 class="card-title">{{i.name}}</h5>
+        <p class="card-text"><p>{{i.description |slice:"200"|safe }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <br/>
+
+
+    </div>
+</div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+

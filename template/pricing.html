@@ -1,37 +1,63 @@
-
 {% extends 'base.html' %}
+{% load static %}
 
+{% block extrahead %}
+<!--<link rel="stylesheet" href='{% static "css/Pricing.css" %}' >-->
+<style>
+.shakti
+{
+    background-color: aqua;
+}
 
-{% block content  %}
-<body>
-
-
-
-<h1> Pricing  page </h1>
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<div class="row">
-    <div class="col-4">
-        <h1> Price :100</h1>
-        <a href="{% url 'signup'  %}"  <button type="button" class="btn btn-primary">price 840</button></a>
-    </div>
-    <div class="col-4">
-        <h1>Price :200</h1>
-        <a href="{% url 'signup'  %}" <button type="button" class="btn btn-primary">Primary</button> </div></a>
-
-    </div>
-    <div class="col-4">
-        <h1>Price :300</h1>
-        <a href="{% url 'signup'  %}" <button type="button" class="btn btn-primary">Success</button> </a>
-    </div>
-  </div>
-
-  </body>
-
+</style>
 {% endblock %}
+
+{% block main_body %}
+
+    <div class="container shakti">
+        <h1 align="center">Pricing </h1>
+        <div class="div2">
+        <a href="{% url 'signup' %}" class="btn btn-outline-primary">Subscribe Now</a>
+    </div>
+        <p class="ptext" style="font-size: 1.5rem;" align="center">Easily upgrade, change plans, or cancel at any time</p>
+        <div class="columns">
+            <ul class="price">
+                <li class="header">BASIC </li>
+                <li class="grey">2k /month</li>
+                <li>..........</li>
+                <li>..........</li>
+                <li>..........</li>
+                <li>..........</li>
+                
+            </ul>
+        </div>
+
+        <div class="columns">
+            <ul class="price">
+                <li class="header">PRO </li>
+                <li class="grey">3k /month</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>.............</li>
+                
+            </ul>
+        </div>
+
+        <div class="columns">
+            <ul class="price">
+                <li class="header">PREMIUM </li>
+                <li class="grey">4k /month</li>
+                <li>............</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>..............</li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+
+
+{% endblock  %}

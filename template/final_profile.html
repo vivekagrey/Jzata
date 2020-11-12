@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/final_profile.css' %}">
+
+<style>
+.vl {
+  border-left: 1px solid rgba(0,0,0,0.1);
+  height: 270px;
+  position: absolute;
+  left: 55%;
+  margin-left: -3px;
+  top: 0;
+}
+</style>
+
+
+</head>
+<body>
+
+
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top nav1">
+<div class="container">
+  
+  <a class="navbar-brand" href="#"><img src="{% static 'image/l.png' %}" style="padding: 2px 10px; height: 48px; "></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarNav">
+   
+<form class="form-inline my-2 my-lg-0">
+      <input class=" search " type="search" placeholder=" Search..." >
+      <!-- <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> -->
+      <button class="_button"><i class="fa fa-search " aria-hidden="true"></i></button>
+    </form>
+   
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link " href="#"><span class="nav-style">HOME</span>  </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="nav-style">PRODUCTS</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class="nav-style">BLOG</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#"><span class="nav-style">PRICING</span></a>
+      </li>
+      <li><button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style=" font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></li>
+    </ul>
+  </div>
+  </div>
+</nav>
+<!-- nav close-->
+
+
+
+<!-- content start -->
+<div class="container-fluid divnav">
+  <div class="img">
+    <img src="{% static 'image/jeff.jpg' %}" width="180px" height="180px;" alt="logo">
+  </div>
+  
+  <div class="text">
+    <h6><i class="fa fa-outdent" aria-hidden="true"></i> ORGANISATION</h6>
+    <h2 align="center">{{name}}</h2>
+  </div>
+  <button class="btn btn-outline-primary">Download Profile</button>
+  </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-2">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+      <a class="nav-link nav-style1 " id="v-pills-about-tab" data-toggle="pill" href="#v-pills-about" role="tab" aria-controls="v-pills-about" aria-selected="false">About</a>
+
+      <!-- <a class="nav-link nav-style1" id="v-pills-founders-tab" data-toggle="pill" href="#v-pills-founders" role="tab" aria-controls="v-pills-founders" aria-selected="false">Founders</a> -->
+
+      <a class="nav-link nav-style1" id="v-pills-noofemployees-tab" data-toggle="pill" href="#v-pills-noofemployees" role="tab" aria-controls="v-pills-noofemployees" aria-selected="false">No of Employees</a>
+
+      <a class="nav-link nav-style1 " id="v-pills-presentcustomers-tab" data-toggle="pill" href="#v-pills-presentcustomers" role="tab" aria-controls="v-pills-presentcustomers" aria-selected="false">Present Customers</a>
+
+      <a class="nav-link nav-style1" id="v-pills-totalcustomers-tab" data-toggle="pill" href="#v-pills-totalcustomers" role="tab" aria-controls="v-pills-totalcustomers" aria-selected="false">Total Customers</a>
+
+      <a class="nav-link nav-style1" id="v-pills-establishedyear-tab" data-toggle="pill" href="#v-pills-establishedyear" role="tab" aria-controls="v-pills-establishedyear" aria-selected="false">Established Year</a>
+
+      <a class="nav-link nav-style1" id="v-pills-investors-tab" data-toggle="pill" href="#v-pills-investors" role="tab" aria-controls="v-pills-investors" aria-selected="false">Invertors</a>
+
+      <a class="nav-link nav-style1" id="v-pills-news-tab" data-toggle="pill" href="#v-pills-news" role="tab" aria-controls="v-pills-news" aria-selected="false">News</a>
+
+      <a class="nav-link nav-style1" id="v-pills-kpi-tab" data-toggle="pill" href="#v-pills-kpi" role="tab" aria-controls="v-pills-kpi" aria-selected="true">KPI</a>
+
+      <a class="nav-link nav-style1" id="v-pills-downloadprofile-tab" data-toggle="pill" href="#v-pills-downloadprofile" role="tab" aria-controls="v-pills-downloadprofile" aria-selected="true">Download Profile</a>
+    
+      
+      
+    </div>
+  </div>
+
+
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+
+      <div class="tab-pane fade founded" id="v-pills-about" role="tabpanel" aria-labelledby="v-pills-about-tab">
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+            <h4>About Us</h4>
+            
+      
+          <h1> {{cin}}</h1>
+          <h1> {{website}} </h1>
+  
+	   			 </div>
+	   			 <div class="vl"></div>
+    				
+   				<div class="col">
+            <h4>Founded</h4>
+            
+            <h1> {{name}}</h1>
+          
+    				<p>It is founded in 1995</p>
+    			</div>
+ 			</div>
+ 		</div>
+ 	</div>
+
+
+      <!-- <div class="tab-pane fade founded" id="v-pills-founders" role="tabpanel" aria-labelledby="v-pills-founders-tab"><img src="image/client_a.jpg" width="20%" height="20%"><h1>Suraj </h1></div> -->
+
+      <div class="tab-pane fade founded" id="v-pills-noofemployees" role="tabpanel" aria-labelledby="v-pills-noofemployees-tab">
+      	
+      	hello
+      </div>
+
+      <div class="tab-pane fade" id="v-pills-presentcustomers" role="tabpanel" aria-labelledby="v-pills-presentcustomers-tab">Present Customers</div>
+
+      <div class="tab-pane fade" id="v-pills-totalcustomers" role="tabpanel" aria-labelledby="v-pills-totalcustomers-tab">Totalcustomers</div>
+
+      <div class="tab-pane fade" id="v-pills-establishedyear" role="tabpanel" aria-labelledby="v-pills-establishedyear-tab">Established Year</div>
+
+      <div class="tab-pane fade" id="v-pills-investors" role="tabpanel" aria-labelledby="v-pills-investors-tab">Investors</div>
+
+      <div class="tab-pane fade" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news-tab">News</div>
+
+      <div class="tab-pane fade  active" id="v-pills-kpi" role="tabpanel" aria-labelledby="v-pills-kpi-tab">
+      <div class='tableauPlaceholder' id='viz1604476795232' style='position: relative; width: 50%; height: auto'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book3_16040491741870&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Book3_16040491741870&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book3_16040491741870&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='amp;:showVizHome=no' /><param name='filter' value='amp;:host_url=https%3A%2F%2Fpublic.tableau.com%2F' /><param name='filter' value='amp;:embed_code_version=3' /><param name='filter' value='amp;:tabs=no' /><param name='filter' value='amp;:toolbar=yes' /><param name='filter' value='amp;:animate_transition=yes' /><param name='filter' value='amp;:display_static_image=no' /><param name='filter' value='amp;:display_spinner=no' /><param name='filter' value='amp;:display_overlay=yes' /><param name='filter' value='amp;:display_count=yes' /><param name='filter' value='amp;:language=en' /><param name='filter' value='amp;:loadOrderID=0' /></object></div> 
+
+      <iframe width="800" height="900" frameborder="0" scrolling="no" src="//plotly.com/~akhilesh.johnnette/4.embed"></iframe> 
+      </div>
+
+
+
+      <div class="tab-pane fade" id="v-pills-downloadprofile" role="tabpanel" aria-labelledby="v-pills-downloadprofile-tab">Download Profile </div>
+
+      
+
+      
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- content end -->
+
+
+<!-- Kpi script start -->
+<script type='text/javascript'>                    
+        var divElement = document.getElementById('viz1604476795232');                    
+        var vizElement = divElement.getElementsByTagName('object')[0];                    
+        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+        var scriptElement = document.createElement('script');                    
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+        </script>
+<!-- Kpi script start -->
+</body>
+</html>

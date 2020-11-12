@@ -1,6 +1,7 @@
 from django.db import models
 
 class Basic(models.Model):
+    cin=models.CharField(max_length=200,null=True,blank=True)
     name=models.TextField(null=True)
     website=models.TextField(null=True)
     Industry=models.TextField(null=True)
@@ -16,8 +17,9 @@ class Basic(models.Model):
     incorporation_date=models.TextField(null=True)
     register_address=models.TextField(null=True)
     Industry_code=models.TextField(null=True)
- 
-
+    Company_Registered_Name=models.CharField(max_length=100,null=True,blank=True)
+    Roc=models.CharField(max_length=100,null=True,blank=True)
+    director_detail=models.CharField(max_length=100,null=True,blank=True)
 
     def __str__(self):
         return self.name

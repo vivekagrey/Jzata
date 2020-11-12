@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
+{% load static %}
 <html>
 <head>
-  
-{%load static%}
-  <title></title>
-	<!-- Latest compiled and minified CSS -->
+
+	<title></title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -17,16 +18,77 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
 <style>
+*{
+  padding: 0;
+  margin:0; 
+}
+._demo_{
+  background-color:white;
+}
 
+._demo1_{
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+
+}
+
+._demo1_:hover{
+  /*background-color: #4169e1;*/
+  /*color: #00308F;*/
+  /*font-size: 19px;*/
+  color: #0000FF;
+}
+._demo2_{
+  width: 350px;
+  height: 37px;
+  margin-left: 40px;
+  border-radius: 5px 0 0 5px;
+  border:1px solid black;
+
+}
+._demo3_{
+  width: 50px;
+  height: 37px;
+  border-radius: 0px 5px 5px 0px;
+  border-width: 1px 1px 1px 0;
+  /*box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+}
+@media screen and (max-width: 600px) {
+  ._demo2_ {
+    margin-left: 0px;
+  }
+  
+}
+
+._demo4_{
+  width: 100%;
+  height: 360px;
+  background-color: #191919;
+  padding: 70px 80px;
+  justify-content: center;
+  color: #b2b2b2;
+}
+._demo4_> p{
+  font-size:12px; 
+  text-align: center;
+
+
+}
 </style>
+
+{% block extrahead %}
+
+{% endblock %}
+
 </head>
+
 <body>
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top nav1">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top _demo_">
 <div class="container">
   
   <a class="navbar-brand" href="#"><img src="{% static 'image/l.png' %}" style="padding: 2px 10px; height: 48px; "></a>
@@ -36,34 +98,39 @@
 
   <div class="collapse navbar-collapse " id="navbarNav">
    
-<form class="form-inline my-2 my-lg-0">
-      <input class=" search " type="search" placeholder=" Search..." >
-      <!-- <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> -->
-      <button class="_button"><i class="fa fa-search " aria-hidden="true"></i></button>
-    </form>
+    <form autocomplete="off" action="{% url 'search' %}" method="POST">
+      {% csrf_token %}
+      <div class="autocomplete" style="width:300px;">
+      <input id="myInput" type="text" name="temp" placeholder="search company">
+      </div>
+        <input type="submit" value="SEARCH">
+      </form>
    
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ">
-        <a class="nav-link " href="#"><span class="nav-style">HOME</span>  </a>
+        <a class="nav-link " href="#"><span class="_demo1_">HOME</span>  </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><span class="nav-style">PRODUCTS</span></a>
+        <a class="nav-link" href="#"><span class="_demo1_">PRODUCTS</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><span class="nav-style">BLOG</span></a>
+        <a class="nav-link" href="#"><span class="_demo1_">BLOG</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#"><span class="nav-style">PRICING</span></a>
+        <a class="nav-link " href="#"><span class="_demo1_">PRICING</span></a>
       </li>
       <li><button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style=" font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></li>
     </ul>
   </div>
   </div>
 </nav>
-{% block content %}
+
+{% block main_body %}
+
 
 {% endblock %}
-<footer>
+
+<footer class="_demo4_">
   <div class="row">
     <div class="col-sm-3">
       <h5>US HEADQUARTER</h5>
@@ -100,6 +167,442 @@
 </footer>
 
 
+
+<script>
+  function autocomplete(inp, arr) {
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false;}
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+          /*check if the item starts with the same letters as the text field value:*/
+          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            /*create a DIV element for each matching element:*/
+            b = document.createElement("DIV");
+            /*make the matching letters bold:*/
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);
+            /*insert a input field that will hold the current array item's value:*/
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            b.addEventListener("click", function(e) {
+                /*insert the value for the autocomplete text field:*/
+                inp.value = this.getElementsByTagName("input")[0].value;
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+            });
+            a.appendChild(b);
+          }
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          /*If the arrow DOWN key is pressed,
+          increase the currentFocus variable:*/
+          currentFocus++;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 38) { //up
+          /*If the arrow UP key is pressed,
+          decrease the currentFocus variable:*/
+          currentFocus--;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          if (currentFocus > -1) {
+            /*and simulate a click on the "active" item:*/
+            if (x) x[currentFocus].click();
+          }
+        }
+    });
+    function addActive(x) {
+      /*a function to classify an item as "active":*/
+      if (!x) return false;
+      /*start by removing the "active" class on all items:*/
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      /*add class "autocomplete-active":*/
+      x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+      /*a function to remove the "active" class from all autocomplete items:*/
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+      }
+    }
+    function closeAllLists(elmnt) {
+      /*close all autocomplete lists in the document,
+      except the one passed as an argument:*/
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+          x[i].parentNode.removeChild(x[i]);
+        }
+      }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+  }
+  
+  
+  var countries=[' AARAV UNMANNED SYSTEMS PRIVATE LIMITED ',
+   ' DHAKSHA UNMANNED SYSTEMS PRIVATE LIMITED ',
+   ' EPAGE UAV PRIVATE LIMITED ',
+   ' FLAIRE UNMANNED SYSTEMS PRIVATE LIMITED ',
+   ' FLIEGE UAV CONCEPTS PRIVATE LIMITED ',
+   ' GARUDAN UNMANNED SYSTEM PRIVATE LIMITED ',
+   ' HINDUSTAN UAV SYSTEMS PRIVATE LIMITED ',
+   ' HYPERGRAVITY UNMANNED TECHNOLOGIES PRIVATE LIMITED ',
+   ' INDIGENOUS ROBOTIC UNMANNED SYSTEMS PRIVATE LIMITED ',
+   ' JATAYU UNMANNED TECHNOLOGIES PRIVATE LIMITED ',
+   ' REDBAY UNMANNED AERIAL SYSTEM SERVICES PRIVATE LIMITED ',
+   ' RELIANCE UNMANNED SYSTEMS LIMITED ',
+   ' R-UAV INDIA PRIVATE LIMITED ',
+   ' SHANDIAN UNMANNED SYSTEMS PRIVATE LIMITED ',
+   ' STORK UNMANNED AERIAL VEHICLES PRIVATE LIMITED ',
+   ' TERRAQUA UAV SOLUTIONS PRIVATE LIMITED ',
+   ' UAV SOLUTIONS LLP ',
+   ' UAV WELLNESS PRIVATE LIMITED ',
+   ' UNMANNED & AUTONOMOUS VEHICLES ASSOCIATION nonprofit ',
+   ' UNMANNED AND AIRBORNE SOLUTIONS PRIVATE LIMITED ',
+   ' UNMANNED DYNAMICS INDIA PRIVATE LIMITED ',
+   ' WINDELITE UAV SYSTEMS PRIVATE LIMITED ',
+   ' Z - AXIS UNMANNED MACHINES PRIVATE LIMITED ',
+   '1 Martian Way',
+   '10DIMES DRONE SYSTEMS (OPC) PRIVATE LIMITED',
+   '360 Photography',
+   'AADYAH Aerospace Private Limited',
+   'ABJ Drones',
+   'Adani Group',
+   'Aeret',
+   'Aerial Photo India',
+   'Aerizone',
+   'AERO 360',
+   'AERO DRONE TECHNOLOGIES PRIVATE LIMITED',
+   'AERO2ASTRO',
+   'Aero360 - DroniX Technologies Private Limited',
+   'AERODESIGN Solutions',
+   'Aeromobix Systems Pvt ltd',
+   'Aerotics Technologies',
+   'AEROVISION INDIA, NAGPUR',
+   'AERROMETRY DRONE SURVEYS LLP',
+   'AerX Labs',
+   'Aethrone Aerospace',
+   'Aiotize',
+   'Airbus Aircraft',
+   'AIRBUS INDIA OPERATIONS PRIVATE LIMITED',
+   'AIRPIX',
+   'AirPix',
+   'AJAY & SARTHAK DRONE PRIVATE LIMITED',
+   'Anvi Geospatial Private Limited',
+   'ARCH Drones',
+   'Arya Dega',
+   'Asteria Aerospace Private Limited',
+   'AstroSoc Corp LLC—ASCASD TECH Private Limited',
+   'Atom Aviation',
+   'ATOMGEO Private Limited',
+   'Attentive AI',
+   'Aurora Integrated Systems Pvt Ltd',
+   'AUS-Aarav Unmanned Systems',
+   'AVCS SYSTEMS INDIA PRIVATE LIMITED',
+   'Avian Aerospace',
+   'Avian Workshops',
+   'Avianco Technologies Pvt Ltd',
+   'Aviocian Technologies Pvt. Ltd.',
+   'Axesmap',
+   'AYAAN Autonomous Systems',
+   'Barco',
+   'Betterdrones',
+   'BHARAT DRONE SYSTEMS PRIVATE LIMITED',
+   'Bharat Dynamics Limited',
+   'Bharat Forge Ltd',
+   'BharatRohan®- Transforming agriculture',
+   'Boeing',
+   'Bombay Electronics',
+   'Brahmastra Aerospace Systems',
+   'BrahMos Aerospace',
+   'Bubblefly Technologies Private Limited',
+   'CAAST-CSAWM',
+   'Caerobotics',
+   'Canopus Drone Apps Development and Solutions',
+   'Canopus Infosystems Pvt. Ltd.',
+   'Careers at FlytBase (We are Hiring)',
+   'Clove Technologies',
+   'CRON AI',
+   'CRON Systems',
+   'CrystalBall',
+   'CSC DRONE AVIATION INDIA PRIVATE LIMITED',
+   'Dassault Aviation',
+   'Defense Company in India- Shoghi Communications',
+   'DELOPT',
+   'Detect Technologies',
+   'Diehl',
+   'DigiCollect',
+   'Dilip Buildcon Ltd.',
+   'DN Aerospace',
+   'DP Enterprise Aviation & Adventure Services',
+   'DRDO, Centre for Airborne Systems',
+   'Drona Aviation',
+   'DronaMaps',
+   'Dronation Labs Pvt Ltd',
+   'Drone Aerospace Systems',
+   'Drone Federation of India',
+   'Drone Helpline',
+   'Drone Pilot Network',
+   'Drone Tribe',
+   'Dronelab®',
+   'Drones Tech Lab',
+   'DroneStark Technologies',
+   'Dronitech',
+   'Dynamatics Technologies Limited.',
+   'Earth Analytics India Ltd.',
+   'Earth On Mapping Consulting',
+   'Ecom Infotech',
+   'EDALL SYSTEMS',
+   'EduTronics.tech',
+   'EnerComp Solutions Pvt Ltd',
+   'Enerdyne Devices Private Limited',
+   'Envent Digital Technologies (P) Ltd.',
+   "Equinox's Drones",
+   'Everest Electronics',
+   'EyeROV (IROV TECHNOLOGIES PRIVATE LIMITED)',
+   'Felis Creations',
+   'Flykit Blog',
+   'FlytBase',
+   'FOCUS GEOSPATIAL PRIVATE LIMITED',
+   'GAMMA ROTORS PVT. LTD.',
+   'Garuda Aerospace Private Limited',
+   'GarudaUAV',
+   'GarudOculus UAV Technologies LLP',
+   'General Aeronautics Pvt Ltd',
+   'GeoCentroid Pvt. Ltd',
+   'Geokno India Pvt. Ltd.',
+   'GeoShot Technologies',
+   'GeoSpoc',
+   'GRAVODRONE - Aerial Photography, Aerial Videography, Mapping & Inspection services in India',
+   'HAVELI UAVS',
+   'Hawking Industries',
+   'Hella Infratech',
+   'Honeywell International India Private Limited - Adi',
+   'Hubblefly Technologies',
+   'ideaForge ',
+   'IDRL - Indian Drone Racing League',
+   'Incubate IND',
+   'Indian Drone Squad',
+   'Indian Institute of Drones',
+   'Indian Robo Store',
+   'INDIAN ROBOTICS SOLUTION PVT LTD',
+   'Indra',
+   'INDrone Aero Systems ',
+   'Indrones',
+   'Infitron Advanced Systems pvt. ltd',
+   'Inov Robotics',
+   'IoTechWorld Avigation',
+   'IPageIntl (IPage UM Services Pvt Ltd)',
+   'Jane Aerospace Pvt Ltd',
+   'Jds Productions',
+   'Jet Aerospace Aviation Research Center',
+   'Jetwings Technologies',
+   'Johnnette Technologies ',
+   'Kadet Defence Systems',
+   'Kalyani Forge',
+   'Kambill Systems Pvt Ltd',
+   'Kathputlee Arts and Films',
+   'L&T Technology Services Limited',
+   'L3Harris',
+   'Lockheed Martin',
+   'Lovely Electronics',
+   'Lydnow Edutech Private Limited',
+   'Mahindra Aerospace',
+   'MAKAIR',
+   'Marut Drones',
+   'Marvel Geospatial Solutions Pvt Ltd',
+   'Matrix Geo Solutions Pvt Ltd.',
+   'Max AeroSpace & Aviation Pvt Ltd',
+   'Maxonics - India',
+   'Maxtorq UAV Flight School',
+   'Mekanchi Global Private Limited',
+   'MIDHANI',
+   'Multiplex Drone Pvt. Ltd.',
+   'N. B. Infotech',
+   'National Aerospace Laboratories',
+   'NewSpace Research and Technologies',
+   'Okulo Aerospace',
+   'OM UAV Systems',
+   'Omnipresent Robot Tech',
+   'Orxa Energies',
+   'PDRL',
+   'Picxy',
+   'Pi-Drones',
+   'PIGEON INNOVATIVE SOLUTIONS LLP',
+   'PixelDo.Com',
+   'Pixlaer Commercial Drone Services',
+   'Playment',
+   'Probots Techno Solutions - India',
+   'Quidich Innovation Labs',
+   'Raphe mPhibr Private Limited',
+   'Redwing Labs',
+   'RELIANCE DEFENCE LIMITED',
+   'Robokits India',
+   'Robosoft Systems',
+   'Rockwell Collins',
+   'ROLLS-ROYCE OPERATIONS (INDIA) PRIVATE LIMITED',
+   'RRG Engineering',
+   'RV Matrix Software Technologies Private Limited',
+   'Saab',
+   'Sagar Defence Engineering',
+   'Samhams Technologies',
+   'SASMOS HET TECHNOLOGIES LIMITED',
+   'SBL',
+   'SECON Private Limited, Bangalore, INDIA',
+   'SenseHawk',
+   'SensoVision Systems',
+   'SGOC Global Ventures Private Limited',
+   'Sierra Aerospace',
+   'Silverline Electronics',
+   'Skylark Drones',
+   'SKYPORT INNOVATIONS',
+   'Skywalk Drobotics Academy',
+   'soaron',
+   'Speck Systems Ltd',
+   'SREE SAI AEROTECH INNOVATIONS PRIVATE LIMITED',
+   'SRM UAV',
+   'Strobotix - India',
+   'Student Copter Research Organization',
+   'SunGeomatics',
+   'SunRobotics Technologies',
+   'Swallow Systems Pvt. Ltd.',
+   'Syslogyx Technologies Pvt Ltd',
+   'Takvaviya Analytics Private Limited',
+   'TATA Advanced Systems Limited',
+   'Tata Lockheed Martin Aerostructurs Limited',
+   'Tata Power Sed',
+   'Team UAV',
+   'TECH SIS LIMITED',
+   'TechEagle Innovations',
+   'Techimax IT Services Pvt Ltd',
+   'Techtonics - Robotics and Electronics',
+   'Terra Drone India',
+   'Thanos Technologies Private Limited',
+   'The Hi-Tech Robotic Systemz Ltd',
+   'Throttle Aerospace Systems Pvt Ltd',
+   'Tonbo Imaging',
+   'Total Drone Flying Solutions Ltd',
+   'TRD Enterprises',
+   'TreisTek India Pvt. Ltd.',
+   'Tsalla Aerospace',
+   'TSAW Drones',
+   'UAV Innovation & Commercial Solutions Pvt Ltd',
+   'UAVE LIMITED',
+   'Usnatek',
+   'Vayu Drone Technologies',
+   'Vigilant Aerospace',
+   'Vigneshwar Aero Marine',
+   'visualAI',
+   'Vizzbee',
+   'Vortex UAS',
+   'VR Guru',
+   'VTOL Aviation India Pvt Ltd',
+   'WaveNet Solutions Pvt. Ltd.',
+   'We Do Sky',
+   'YelloSKYE',
+   'Yes Electronics',
+   'Yottec Systems LLP',
+   'Zen Technologies Limited',
+   'Aerial mapping /Drone surveying',
+   'AERIALAIR',
+   'Agarwal Electronics',
+   'Ajantha Electronics [Richie Street]',
+   'Aries Solutions Pvt.Ltd (drone comp not on LI)',
+   'Ashwini Electronics belagavi',
+   'BAE Systems India pvt ltd',
+   'Bharathi Electronics',
+   'Carinex Ltd',
+   'CBAI Technologies Private Limited',
+   'Deltakit',
+   'Dhaksha Unmanned Systems (not on LI)',
+   'DIEHL (indian LI not available)',
+   'Drona Vatika',
+   'DRONE ROBOTICS ACADEMY',
+   'Drone world technologies pvt ltd',
+   'Elbit Systems',
+   'Electronics Spares',
+   'EMBEDDED CREATION',
+   'FLIR systems pvt. Ltd',
+   'FOPPLE DRONE TECH PVT.LTD',
+   'Geotrax Internationl Services',
+   'Hanwha International India',
+   'Hobbypep',
+   'HOVERROBOTIX HOVERBOARD LUDHIANA',
+   'IAI Malat',
+   'iFuture Technology',
+   'Indoi Systems',
+   'Isarael Aerospace Industries India',
+   'Jasif Drones',
+   'JDS Productions',
+   'Isarael Aerospace Industries India',
+   'Jasif Drones',
+   'JDS Productions',
+   'Karikalan Drones Aerial Photography',
+   'Larsen and Taubro',
+   'M-Drones-Authorised Drone Servies Centre',
+   'Mehta Bros',
+   'Midhun Thypparampil',
+   'MIKROBOTIX (not on LI)',
+   "Om's Drone Developer (not on LI)",
+   'promotional videography',
+   'Rafael Advanced Defense systems',
+   'RC Hobby India',
+   'Rc observer',
+   'RcBazaar Bangalore',
+   'RCHOBBYTECH SOLUTIONS PVT LTD (not on LI)',
+   'RedBay UAV System Services Pvt. Ltd (not on LI)',
+   'Robotskull',
+   'SAAB',
+   'Sanpra Enterprises',
+   'SILVERLINE ELECTRONICS',
+   'SoFly Innovations Pvt. Ltd.',
+   'Symtronics Automation',
+   'Tata Power SED',
+   'Techtonics',
+   'Thales group India',
+   'UAS International Pvt. Ltd',
+   'UAS Maintenance & Supplier Pvt.Ltd.',
+   'UAVE Limited',
+   'Ucal jap',
+   'Vibrant Hobbies LLP',
+   'Vinayak Drones',
+   'vortex UAS',
+   'wasp 3d',
+   'Z-AXIT UNMANNED MACHINES (Pvt Ltd)',
+   'Aviation Space',
+   'india Flying labs'
+   ]
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  autocomplete(document.getElementById("myInput"), countries);
+  </script>
 
 
 </body>

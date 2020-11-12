@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
 
-<head>
-    
-</head>
 
-<body>
-{% block content %}
-<h1>NEWS ARTICLE LINKS</h1>
-{% for i in l%}
-    {{i}}
+
+{% block main_body %}
+
+<h1>POSITIVE NEWS ARTICLE LINKS</h1>
+{% for i in pos_news%}
+    {{i.headline}}
     <br/>
+    {{i.link}}
+    <br/>
+    {{i.date}}
+    <br/>
+    {{i.summary}}
 {% endfor %}
+<h1>NEGATIVE NEWS ARTICLE LINKS</h1>
+{% for i in neg_news%}
+    {{i.headline}}
+    <br/>
+    {{i.link}}
+    <br/>
+    {{i.date}}
+    <br/>
+    {{i.summary}}
+{% endfor %}
+<h1>COMPANY DATA</h1>
 {% for i in s%}
    <h1> {{i.name}}</h1>
    <br/>
@@ -42,10 +56,11 @@
     <br/>
     {{i.Industry_code}}
 
-{% endfor %}
+{% endfor content %}
+
 {% endblock %}
 
-</body>
+
 
 
 

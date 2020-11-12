@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="{% static 'css/plans.css' %}">
+
+</head>
+
+
+
+
+<body>
+    <div class="container">
+        <h1>Choose Your Plan</h1>
+        <div class="div2">
+        <a href="#" class="btn btn-outline-primary">Payment</a>
+    </div>
+        <p class="ptext" style="font-size: 1.5rem;">Easily upgrade, change plans, or cancel at any time</p>
+        <div id="col1" class="columns" onclick="myfunction()">
+            <ul class="price">
+                <li class="header">BASIC </li>
+                <li class="grey">2k /month</li>
+                <li>..........</li>
+                <li>..........</li>
+                <li>..........</li>
+                <li>..........</li>
+                
+            </ul>
+        </div>
+
+        <div class="columns1" onclick="myfunction1()">
+            <ul class="price">
+                <li class="header">PRO </li>
+                <li class="grey">3k /month</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>.............</li>
+                
+            </ul>
+        </div>
+
+        <div class="columns2" onclick="myfunction2()">
+            <ul class="price">
+                <li class="header">PREMIUM </li>
+                <li class="grey">4k /month</li>
+                <li>............</li>
+                <li>.............</li>
+                <li>.............</li>
+                <li>..............</li>
+                
+            </ul>
+        </div>
+    </div>
+    <script>
+        function myfunction() {
+            document.getElementsByClassName("columns")[0].style.backgroundColor="#007bff";
+            console.log("000000")
+            document.getElementsByClassName("columns1")[0].style.backgroundColor="white";
+            document.getElementsByClassName("columns2")[0].style.backgroundColor="white";
+            
+        }
+        function myfunction1() {
+            document.getElementsByClassName("columns1")[0].style.backgroundColor="#007bff";
+            console.log("111111")
+            document.getElementsByClassName("columns")[0].style.backgroundColor="white";
+            document.getElementsByClassName("columns2")[0].style.backgroundColor="white";
+
+        }
+        
+         function myfunction2() {
+            document.getElementsByClassName("columns2")[0].style.backgroundColor="#007bff";
+            console.log("22222")
+            document.getElementsByClassName("columns")[0].style.backgroundColor="white";
+            document.getElementsByClassName("columns1")[0].style.backgroundColor="white";
+        
+
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
