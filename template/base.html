@@ -4,7 +4,7 @@
 <html>
 <head>
 
-	<title></title>
+<title>Welcome to this page </title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -73,9 +73,79 @@
 ._demo4_> p{
   font-size:12px; 
   text-align: center;
+}
+
+.footer{
+	/*background-color: #2F4F4F;*/
+	padding: 70px;
+	color: white;
+
+}
+footer li {
+  margin-bottom: 10px;
+
+}
+footer a {
+  color: #b2b2b2;
+  font-size: 15px;
+  text-transform: ;
+}
+
+footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+footer {
+  background: #31383d;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+footer h5 {
+  float: none;
+  margin-bottom: 15px;  
+}
+footer a:hover{
+	text-decoration: none;
+	color: #b2b2b2;
+}
+.font{
+	padding: 5px;
+	font-size: 30px;
+}
+.footer{
+	width: 100%;
+	height: 360px;
+	background-color: #191919;
+	padding: 70px 80px;
+	justify-content: center;
+	color: #b2b2b2;
+}
+.footer> p{
+	font-size:12px; 
+	text-align: center;
 
 
 }
+.para1{
+	margin-top:  60px;
+}
+
+@media screen and (max-width: 600px) {
+  
+  /*.nav1{
+  	background-color:black;
+
+  }*/
+  .trust{
+  	display: none;
+  }
+}
+.checkFooter{
+
+  padding-left: 20px;  
+}
+
+
 </style>
 
 {% block extrahead %}
@@ -128,9 +198,90 @@
 {% block main_body %}
 
 
-{% endblock %}
 
-<footer class="_demo4_">
+{% endblock %}
+<div class="checkFooter">
+<footer>
+  <div class="row">
+    <div class="col-sm-2">
+             <h5 style="color: honeydew;">PRODUCTS</h5>
+             <ul>
+                 <li><a href="">PitchBook Desktop</a></li>
+                 <li><a href="">PitchBook Mobile</a></li>
+                 <li><a href="">Excel plugin</a></li>
+                 <li><a href="">Direct Data</a></li>
+                 <li><a href="">CRM Integration</a></li>
+                 <li><a href="">Chrome Integration</a></li>
+                 <li><a href="">Chrome Extension</a></li>
+                 <li><a href="">Institutional Research group</a></li>
+                 
+             </ul>
+    </div>
+
+    <div class="col-sm-2">
+      <h5 style="color: honeydew;">SOLUTIONS</h5>
+             <ul>
+                 <li><a href="">Private Market</a></li>
+                 <li><a href="">Fundraising</a></li>
+                 <li><a href="">Deal sourcing</a></li>
+                 <li><a href="">Due Deligance</a></li>
+                 <li><a href="">Business development</a></li>
+                 <li><a href="">Networking</a></li>
+                 <li><a href="">Deal Execution</a></li>
+                 
+             </ul>
+    </div>
+
+    <div class="col-sm-2">
+      <h5 style="color: honeydew;">DATA</h5>
+             <ul>
+                 <li><a href="">Company </a></li>
+                 <li><a href="">Investers</a></li>
+                 <li><a href="">Deals</a></li>
+                 <li><a href="">M & A</a></li>
+                 <li><a href="">Limited Partners</a></li>
+                 <li><a href="">Funds</a></li>
+                 <li><a href="{% url 'gdpr' %}">GDPR</a></li>
+                 <li><a href="{% url 'privacy' %}">privacy policy</a></li>
+                 <li><a href="{% url 'service' %}">Term of Service</a></li>
+            
+                 
+             </ul>
+    </div>
+
+    <div class="col-sm-6">
+             <h3 style="color: honeydew;">Send us a message</h3>
+             <div class="form form-group">
+               <div class="row">
+                 <div class="col-sm-6">
+                 <input type="text" name="" placeholder="Name" class="form-control">  
+                 </div>
+
+                 <div class="col-sm-6">
+                 <input type="text" name="" placeholder="Name" class="form-control">  
+                 </div>
+               </div><br>
+
+                 <div class="row">
+                  <div class="col-sm">
+                    <textarea class="form-control" rows="7" placeholder="Write Something" style="background-color: #F5F5F5"></textarea>
+
+                  </div>
+                 </div><br>
+                 <input type="submit" name="" value="Send" class="btn btn-block btn-lg btn-primary">
+               </div>
+             </div>
+             <a href=""><i class="fa fa-facebook-official font" aria-hidden="true" ></i></a> 
+            <a href=""><i class="fa fa-linkedin-square font" aria-hidden="true"></i></a> 
+            <a href=""><i class="fa fa-twitter-square font" aria-hidden="true"></i></a>
+    </div>    
+  </div>
+  
+ 
+</footer>
+
+</div>
+<div class="footer">
   <div class="row">
     <div class="col-sm-3">
       <h5>US HEADQUARTER</h5>
@@ -143,7 +294,7 @@
       <h5>EUROPEAN HEADQUARTERS </h5>
       <P>+44 020 8037 2308
       1st Floor Saffron House
-      6-10 Kirby Street
+      6-10 Kirsby Street
       London EC1N 8TS
       United Kingdom</P>
     </div>
@@ -164,7 +315,8 @@
   </div>
   <P class="para1">© 2020 PitchBook Data. All rights reserved. PitchBook is a financial technology company that provides data on the capital markets.</P>
   <p>Site Map Terms of Use Privacy Policy California Consumer: Do Not Sell My Info</p>
-</footer>
+</div>
+
 
 
 

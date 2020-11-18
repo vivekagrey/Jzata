@@ -11,6 +11,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_protect
 
 def signup(request):
 
@@ -56,7 +57,7 @@ def signup(request):
                 usr.last_name=""
             usr.is_active=False
             usr.save() 
-            usr_otp=random.randint(1000,9999)
+            usr_otp=random.randint(10000,99999)
             UserOTP.objects.create(user=usr,otp=usr_otp)
             mess=f"hello {usr.first_name},\n your otp is {usr_otp}\n Thanks!"  
 
@@ -77,23 +78,29 @@ def signup(request):
     return render(request,'signup.html',{'form':form})   
 
 def login(request):
-
+    if request.user.is_authenticated:
+        return redirect('home') 
     if request.method=="POST":
         username=request.POST['t1']
         password=request.POST['t2']
         username=username.strip()
         password=password.strip()
-        print(password)
-        print(username,password)
-        user=auth.authenticate(username=username,password=password)
+
+        user=auth.authenticate(request,username=username,password=password)
         if user is not None:
             auth.login(request,user)
             print("welcome to this page")
             return render(request,'home.html')         
-        else:
+        
+        elif not User.objects.filter(username = username,password=password).exists(): 
             error=True
             print("not found")
-            return render(request,'login.html',{'error':error})  
+            return render(request,'login.html',{'error':error}) 
+        
+        elif not User.objects.get(username=username).is_active:
+            pass
+            
+                                     
     return render(request,'login.html')
 
 
@@ -101,3 +108,25 @@ def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return render(request,'home.html')
+
+@csrf_protect
+def resend_otp(request):
+    if request.method == 'GET':
+        get_usr =request.GET['usr'] 
+        if User.objects.filter(username =get_usr).exists() and not User.objects.get(username =get_usr).is_active:
+            
+            usr =User.objects.get(username=get_usr)
+            usr_otp=random.randint(10000,99999)
+            UserOTP.objects.create(user=usr,otp=usr_otp)
+            
+            mess=f"hello {usr.first_name},\n your otp is {usr_otp}\n Thanks!"  
+
+            send_mail(
+                "welcome to ITScorer - Verify your Email",
+                mess,
+                settings.EMAIL_HOST_USER,
+                [usr.email],
+                fail_silently=False
+            )   
+        return HttpResponse("Resend")
+    return HttpResponse("there is some issue")

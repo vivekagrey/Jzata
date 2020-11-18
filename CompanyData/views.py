@@ -64,9 +64,10 @@ def check(request):
     s1=Basic.objects.all().filter(name=s)
     list1=[]
     for i in s1:
-        list1.append(i)    
         cin=i.cin
         
+        name=i.name
+
         Website=i.website
        
         Industry=i.Industry
@@ -80,29 +81,69 @@ def check(request):
         Specialities=i.specialities
         
         Linkedin=i.linkedin
+          
         Domain=i.domain
+        
         Logo=i.logo
+        
         Description=i.description
+        
         Companyno=i.company_no
-        Incorporationdate=i.Industry_code
-        Registeraddress=i.register_address
-        Industrycode=i.Industry_code
+        
+        incorporation_date=i.incorporation_date
+        
+        register_address=i.register_address
+        
+        Industry_code=i.Industry_code
+        
+        Company_Registered_Name=i.Company_Registered_Name
+        
+        roc=i.Roc
+            
+        director_detail=i.director_detail    
 
+    cart={}
     print(cin)
+        
+    print(name)
+    cart['name']=name
     
-    print(Website)
-       
+    cart['website']=Website
     print(Industry)
-        
+    cart['Industry'] =Industry
     print(Headquatars)
-        
+    cart['Headquatars']=Headquatars
     print(Type)
-    
+    cart['Type']=Type
     print(Founded)
-        
+    cart['Founded']=Founded   
     print(Specialities)
-    #pos_news, neg_news = news_extraction(s)
-    #'pos_news':pos_news,'neg_news':neg_news
-    context={'s':s1,'cin':cin,'Website':Website,'Companyno':Companyno,'Industrycode':Industrycode,'Headquatars':Headquatars}
-    return render(request,"final_profile.html",context)
+    cart['Specialities']=Specialities    
+    print(Linkedin)
+    cart['Linkedin']=Linkedin  
+    print(Domain)
+    cart['Domain']=Domain  
+    print(Logo)
+    cart['Logo']=Logo  
+    print(Description)
+    cart['Description']=Description   
+        
+    print(Companyno)
+    cart['companyno']=Companyno 
+    print(incorporation_date)
+    cart['incorporation_date']=incorporation_date 
+    print(register_address)
+    cart['register_address']=register_address  
+    print(Industry_code)
+    cart['Industry_code']=Industry_code 
+    print(Company_Registered_Name)
+    cart['Company_Registered_Name']=Company_Registered_Name   
+    print(roc)
+    cart['roc']=roc        
+    print(director_detail)    
+    cart['director_detail']=director_detail
+    return render(request,"final_profile.html",cart)
 
+
+def canvas(request):
+    return render(request,"canvas.html")

@@ -1,25 +1,307 @@
-<!DOCTYPE html>
-<html>
-<head>
+
 {% load static %}
-  <title></title>
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+{% extends 'base.html' %}
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% block extrahead %}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/final_profile.css' %}">
+	window.onload = function () {
+	
+	var chart1 = new CanvasJS.Chart("chartContainer1", {
+		animationEnabled: true,
+		title:{
+			text: "SALES GROWTH RATE"
+		},	
+		axisY: {
+			title: "Sales Growth Rate",
+			titleFontColor: "#4F81BC",
+			lineColor: "#4F81BC",
+			labelFontColor: "#4F81BC",
+			tickColor: "#4F81BC"
+		},
+			
+		toolTip: {
+			shared: true
+		},
+		legend: {
+			cursor:"pointer",
+			itemclick: toggleDataSeries
+		},
+		data: [{
+			type: "column",
+			name: "Sales Growth Rate",
+			legendText: "Sales Growth Rate",
+			showInLegend: true, 
+			dataPoints:[
+				
+				{ label: "2014-2015", y: -0.007376 },
+				{ label: "2015-2016", y:  0.098673 },
+				{ label: "2016-2017", y:  0.010404 },
+				{ label: "2017-2018", y: -0.003758 },
+				{ label: "2018-2019", y: -0.001071 }
+			]
+		}]
+	});
+	chart1.render();
+	
+	function toggleDataSeries(e) {
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+			e.dataSeries.visible = false;
+		}
+		else {
+			e.dataSeries.visible = true;
+		}
+		chart1.render();
+	}
+	
+	
+	
+	var chart2 = new CanvasJS.Chart("chartContainer2", {
+		animationEnabled: true,
+		title:{
+			text: "NET PROFIT MARGIN"
+		},	
+		axisY: {
+			title: "Net Profit Margin",
+			titleFontColor: "#4F81BC",
+			lineColor: "#4F81BC",
+			labelFontColor: "#4F81BC",
+			tickColor: "#4F81BC"
+		},
+			
+		toolTip: {
+			shared: true
+		},
+		legend: {
+			cursor:"pointer",
+			itemclick: toggleDataSeries
+		},
+		data: [{
+			type: "column",
+			name: "Net Profit Margin ",
+			legendText: "Net Profit Margin",
+			showInLegend: true, 
+			dataPoints:[
+				{ label: "2013-2014", y: 0.004365 },
+				{ label: "2014-2015", y: -2.156384 },
+				{ label: "2015-2016", y:  0.242601 },
+				{ label: "2016-2017", y: 0.089857 },
+				{ label: "2017-2018", y: -0.122412 },
+				{ label: "2018-2019", y: -0.424754 }
+			]
+		}]
+	});
+	chart2.render();
+	
+	function toggleDataSeries(e) {
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+			e.dataSeries.visible = false;
+		}
+		else {
+			e.dataSeries.visible = true;
+		}
+		chart2.render();
+	}
+	
+	
+	   var chart3 = new CanvasJS.Chart("chartContainer3",
+		{
+		  title:{
+			text: "TOTAL REVENUE VS EBT"
+		  
+		  },   
+		  data: [{        
+			type: "column",
+		name:"TOTAL REVENUE",
+		legendText:"Total Revenue",
+		showInLegend:true,
+			dataPoints: [
+			{ label: "2013-2014", y: 56238532 },
+			{ label: "2014-2015", y: 15209177},
+			{ label: "2015-2016", y: 162089179 },
+			{ label: "2016-2017", y: 333137755 },
+			{ label: "2017-2018", y: 224181492 },
+			{ label: "2018-2019", y: 219422295 }
+			]
+		  },
+		  {        
+				
+			type: "column",
+		name:"EBT",
+		legendText:"EBT",
+		showInLegend:true,
+			dataPoints: [
+			{ label: "2013-2014", y: 245508 },
+			{ label: "2014-2015", y: -32796830},
+			{ label: "2015-2016", y: 39323020 },
+			{ label: "2016-2017", y: 29934753 },
+			{ label: "2017-2018", y: -27442562 },
+			{ label: "2018-2019", y: -93200429 }
+			]
+		  }       
+		  ]
+		});
+	
+		chart3.render();
+	
+	
+	var chart4 = new CanvasJS.Chart("chartContainer4", {
+		animationEnabled: true,
+		title:{
+			text: "NET WORTH"
+		
+		},
+			
+		toolTip: {
+			shared: true
+		},
+		legend: {
+			cursor:"pointer",
+			itemclick: toggleDataSeries
+		},
+		data: [{
+			type: "column",
+			name: "Net Worth ",
+			legendText: "Net Worth",
+			showInLegend: true, 
+			dataPoints:[
+				
+				{ label: "2014-2015", y: 12767614 },
+				{ label: "2015-2016", y:  98409764 },
+				{ label: "2016-2017", y: 215988415},
+				
+				{ label: "2018-2019", y: 813113863 }
+			]
+		}]
+	});
+	chart4.render();
+	
+	function toggleDataSeries(e) {
+		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+			e.dataSeries.visible = false;
+		}
+		else {
+			e.dataSeries.visible = true;
+		}
+		chart4.render();
+	}
+	
+	}
+
+	</script>
+	
 
 <style>
+
+.divnav{
+  width: 100%;
+  height: 180px;
+  /*background-image:url(../image/g.jpg); */
+  position: relative;
+  background-color:#4890AB /*#f2f2f2*/;
+  /*box-shadow: 0px 12px 15px 0px  rgba(0, 0, 0, .1);*/
+ /* background-color: #000080;*/
+  /*background-color:#31383d;*/
+}
+.downloadbtn{
+	position: absolute;
+	left: 1150px;
+	top: 100px;
+	color:black;
+	background-color: white;
+	border-radius: 10px;
+	height: 35px;
+	width: 150px;
+	font-size: 15px;
+	border:none/*2px solid black*/;
+}
+.downloadbtn:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.c_image{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+.c_image{
+	border-radius: 7px;
+}
+.text{
+	position: absolute;
+	float: left;
+	left: 230px;
+	top: 60px; 
+}
+.divnav {
+  margin-bottom: 50px;
+ }
+
+.divtwo{
+	padding-right: 1px;
+	box-sizing: border-box;
+}
+.nav-style1{
+	
+	background-color: #4890AB;
+	color: white;
+	font-size: 17px;
+	text-align: center;
+	padding: 15px 0;
+	margin-bottom: 5px;
+	
+}
+.nav-style1:hover{
+	background-color:#4169e1; 
+	color: white; 
+	
+}
+.founded{
+	
+	padding: 50px 50px;
+	margin-left: 100px;
+	width: 900px;
+	/*background-color: #f2f2f2;*/
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+@media all and (max-width: 1100px) {
+ 
+  .c_image{
+  	width: 100px;
+  	height: 100px;
+  }
+  .founded
+  {
+  	padding-left: 10px;
+	padding-top: 10px;
+	margin-left: 22px;
+	width: 370px;
+	height: auto;
+	text-overflow: none;
+	/*background-color: #f2f2f2;*/
+	font-size: 12px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .downloadbtn{
+  	left: 10px;
+  	top: 130px;
+  }
+}
+
+
+
+
+
 .vl {
   border-left: 1px solid rgba(0,0,0,0.1);
   height: 270px;
@@ -28,63 +310,30 @@
   margin-left: -3px;
   top: 0;
 }
+
+.paragraph{
+	color:#565350;
+}
 </style>
 
 
-</head>
-<body>
+
+{% endblock %}
 
 
-<!-- nav -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top nav1">
-<div class="container">
-  
-  <a class="navbar-brand" href="#"><img src="{% static 'image/l.png' %}" style="padding: 2px 10px; height: 48px; "></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse " id="navbarNav">
-   
-<form class="form-inline my-2 my-lg-0">
-      <input class=" search " type="search" placeholder=" Search..." >
-      <!-- <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button> -->
-      <button class="_button"><i class="fa fa-search " aria-hidden="true"></i></button>
-    </form>
-   
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item ">
-        <a class="nav-link " href="#"><span class="nav-style">HOME</span>  </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><span class="nav-style">PRODUCTS</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><span class="nav-style">BLOG</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#"><span class="nav-style">PRICING</span></a>
-      </li>
-      <li><button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style=" font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></li>
-    </ul>
-  </div>
-  </div>
-</nav>
-<!-- nav close-->
-
-
-
+{% block main_body %}
 <!-- content start -->
 <div class="container-fluid divnav">
   <div class="img">
-    <img src="{% static 'image/jeff.jpg' %}" width="180px" height="180px;" alt="logo">
+    <img src="{% static 'image/idea.jpg' %}"  class="c_image" width="150px" height="150px;" alt="logo">
   </div>
   
   <div class="text">
     <h6><i class="fa fa-outdent" aria-hidden="true"></i> ORGANISATION</h6>
+
     <h2 align="center">{{name}}</h2>
   </div>
-  <button class="btn btn-outline-primary">Download Profile</button>
+  <button class="downloadbtn"> <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>  Download Profile</button>
   </div>
 
 
@@ -103,15 +352,17 @@
 
       <a class="nav-link nav-style1" id="v-pills-totalcustomers-tab" data-toggle="pill" href="#v-pills-totalcustomers" role="tab" aria-controls="v-pills-totalcustomers" aria-selected="false">Total Customers</a>
 
-      <a class="nav-link nav-style1" id="v-pills-establishedyear-tab" data-toggle="pill" href="#v-pills-establishedyear" role="tab" aria-controls="v-pills-establishedyear" aria-selected="false">Established Year</a>
+      <a class="nav-link nav-style1" id="v-pills-products-tab" data-toggle="pill" href="#v-pills-products" role="tab" aria-controls="v-pills-products" aria-selected="false">Products</a>
 
-      <a class="nav-link nav-style1" id="v-pills-investors-tab" data-toggle="pill" href="#v-pills-investors" role="tab" aria-controls="v-pills-investors" aria-selected="false">Invertors</a>
+      <a class="nav-link nav-style1" id="v-pills-investors-tab" data-toggle="pill" href="#v-pills-investors" role="tab" aria-controls="v-pills-investors" aria-selected="false">Investors</a>
 
       <a class="nav-link nav-style1" id="v-pills-news-tab" data-toggle="pill" href="#v-pills-news" role="tab" aria-controls="v-pills-news" aria-selected="false">News</a>
 
+      <a class="nav-link nav-style1" id="v-pills-management-tab" data-toggle="pill" href="#v-pills-management" role="tab" aria-controls="v-pills-management" aria-selected="false">Management Team</a>
+
       <a class="nav-link nav-style1" id="v-pills-kpi-tab" data-toggle="pill" href="#v-pills-kpi" role="tab" aria-controls="v-pills-kpi" aria-selected="true">KPI</a>
 
-      <a class="nav-link nav-style1" id="v-pills-downloadprofile-tab" data-toggle="pill" href="#v-pills-downloadprofile" role="tab" aria-controls="v-pills-downloadprofile" aria-selected="true">Download Profile</a>
+      <!-- <a class="nav-link nav-style1" id="v-pills-downloadprofile-tab" data-toggle="pill" href="#v-pills-downloadprofile" role="tab" aria-controls="v-pills-downloadprofile" aria-selected="true">Download Profile</a> -->
     
       
       
@@ -126,21 +377,21 @@
       	<div class="container">
   			<div class="row">
 	    		<div class="col">
-            <h4>About Us</h4>
-            
-      
-          <h1> {{cin}}</h1>
-          <h1> {{website}} </h1>
-  
+	     		 <h4>About Us</h4>
+	     		 <p class="paragraph">
+	     		 	<p><b>Headquarters:-</b> {{Headquatars}}</p><br>
+	     		 	<p><b>Type:-</b> {{Type}}</p><br>
+	     		 	<p><b>Specilities:-</b>{{Specialities}}</p>
+	     		 	<p><b>Company Registered name:-</b>{{Company_Registered_Name}}</p>
+	     		 	<p><b>Director Details</b>{{director_detail}}</p>
+
+	     		 </p>
 	   			 </div>
 	   			 <div class="vl"></div>
     				
    				<div class="col">
-            <h4>Founded</h4>
-            
-            <h1> {{name}}</h1>
-          
-    				<p>It is founded in 1995</p>
+      			<h4>Founded</h4>
+    				<p class="paragraph">{{Founded}}</p>
     			</div>
  			</div>
  		</div>
@@ -151,29 +402,208 @@
 
       <div class="tab-pane fade founded" id="v-pills-noofemployees" role="tabpanel" aria-labelledby="v-pills-noofemployees-tab">
       	
-      	hello
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>No Of Employees</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 
+
+ 			</div>
+ 		</div>
       </div>
 
-      <div class="tab-pane fade" id="v-pills-presentcustomers" role="tabpanel" aria-labelledby="v-pills-presentcustomers-tab">Present Customers</div>
+      <div class="tab-pane fade founded" id="v-pills-presentcustomers" role="tabpanel" aria-labelledby="v-pills-presentcustomers-tab">
 
-      <div class="tab-pane fade" id="v-pills-totalcustomers" role="tabpanel" aria-labelledby="v-pills-totalcustomers-tab">Totalcustomers</div>
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Present Customers</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 
+    				
+   				
+ 			</div>
+ 		</div>
+      </div>
 
-      <div class="tab-pane fade" id="v-pills-establishedyear" role="tabpanel" aria-labelledby="v-pills-establishedyear-tab">Established Year</div>
+      <div class="tab-pane fade founded" id="v-pills-totalcustomers" role="tabpanel" aria-labelledby="v-pills-totalcustomers-tab">
+      	
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Total Customers</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+ 			</div>
+ 		</div>
+      </div>
 
-      <div class="tab-pane fade" id="v-pills-investors" role="tabpanel" aria-labelledby="v-pills-investors-tab">Investors</div>
+      <div class="tab-pane fade founded" id="v-pills-products" role="tabpanel" aria-labelledby="v-pills-products-tab">
+      	
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Products</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 
+    				
+   				
+ 			</div>
+ 		</div>
+      </div>
 
-      <div class="tab-pane fade" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news-tab">News</div>
+      <div class="tab-pane fade founded" id="v-pills-investors" role="tabpanel" aria-labelledby="v-pills-investors-tab">
+      	
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Investors</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			
+    				
+   				
+ 			</div>
+ 		</div>
+
+      </div>
+
+      <div class="tab-pane fade founded" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news-tab">
+      	
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Negative News</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 <div class="vl"></div>
+    				
+   				<div class="col">
+      			<h4>Positive News</h4>
+    				<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    			</div>
+ 			</div>
+ 		</div>
+      </div>
+
+      <div class="tab-pane fade founded" id="v-pills-management" role="tabpanel" aria-labelledby="v-pills-management-tab">
+      	
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>Team</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 
+    				
+   				
+ 			</div>
+ 		</div>
+      </div>
 
       <div class="tab-pane fade  active" id="v-pills-kpi" role="tabpanel" aria-labelledby="v-pills-kpi-tab">
-      <div class='tableauPlaceholder' id='viz1604476795232' style='position: relative; width: 50%; height: auto'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book3_16040491741870&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Book3_16040491741870&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book3_16040491741870&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='amp;:showVizHome=no' /><param name='filter' value='amp;:host_url=https%3A%2F%2Fpublic.tableau.com%2F' /><param name='filter' value='amp;:embed_code_version=3' /><param name='filter' value='amp;:tabs=no' /><param name='filter' value='amp;:toolbar=yes' /><param name='filter' value='amp;:animate_transition=yes' /><param name='filter' value='amp;:display_static_image=no' /><param name='filter' value='amp;:display_spinner=no' /><param name='filter' value='amp;:display_overlay=yes' /><param name='filter' value='amp;:display_count=yes' /><param name='filter' value='amp;:language=en' /><param name='filter' value='amp;:loadOrderID=0' /></object></div> 
+	
+		  <div id="chartContainer1" style="height: 200px; width: 100%;"></div>
+		  <br/>
+		  
+		  <div id="chartContainer2" style="height: 200px; width: 100%;"></div>
+		  <br/>
+		  <br/>
+		  <div id="chartContainer3" style="height: 200px; width: 100%;"></div>
+		  <br/>
+		  <div id="chartContainer4" style="height: 200px; width: 100%;"></div>
+		  
+		</div>
 
-      <iframe width="800" height="900" frameborder="0" scrolling="no" src="//plotly.com/~akhilesh.johnnette/4.embed"></iframe> 
-      </div>
+     </div>
 
 
 
-      <div class="tab-pane fade" id="v-pills-downloadprofile" role="tabpanel" aria-labelledby="v-pills-downloadprofile-tab">Download Profile </div>
-
+      <!-- <div class="tab-pane fade founded" id="v-pills-downloadprofile" role="tabpanel" aria-labelledby="v-pills-downloadprofile-tab">
+      	<div class="container">
+  			<div class="row">
+	    		<div class="col">
+	     		 <h4>About Us</h4>
+	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	   			 </div>
+	   			 <div class="vl"></div>
+    				
+   				<div class="col">
+      			<h4>Founded</h4>
+    				<p class="paragraph">It is founded in 1995</p>
+    			</div>
+ 			</div>
+ 		</div>
+       </div> -->
+	   <div class="tab-pane fade founded" id="v-pills-management" role="tabpanel" aria-labelledby="v-pills-management-tab">
+      	
+		<div class="container">
+			<div class="row">
+			  <div class="col">
+				<h4>Team</h4>
+				<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				  </div>
+				  
+				  
+				 
+		   </div>
+	   </div>
+	</div>
+ 
       
 
       
@@ -187,15 +617,6 @@
 <!-- content end -->
 
 
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <!-- Kpi script start -->
-<script type='text/javascript'>                    
-        var divElement = document.getElementById('viz1604476795232');                    
-        var vizElement = divElement.getElementsByTagName('object')[0];                    
-        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-        var scriptElement = document.createElement('script');                    
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-        </script>
-<!-- Kpi script start -->
-</body>
-</html>
+{% endblock %}

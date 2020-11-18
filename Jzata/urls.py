@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from . import views
 from CompanyData import views as view
 from .views import Blog
+from .views import resend_otp
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('base',view.create),
@@ -19,8 +20,8 @@ urlpatterns = [
     path('privacypolicy',views.privacy,name="privacy"),
     path('service',views.service,name="service"),
     path('blog',Blog.as_view(),name="Blog"),
-    path('check',view.check,name="checkProfile")
-  
-    
+    path('check',view.check,name="checkProfile"),
+    path('pay',views.paypal)
+
   
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
