@@ -161,36 +161,41 @@ footer a:hover{
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top _demo_">
 <div class="container">
   
-  <a class="navbar-brand" href="#"><img src="{% static 'image/l.png' %}" style="padding: 2px 10px; height: 48px; "></a>
+  <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'image/l.png' %}" style="padding: 2px 10px; height: 48px; "></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse " id="navbarNav">
    
-    <form autocomplete="off" action="{% url 'search' %}" method="POST">
-      {% csrf_token %}
-      <div class="autocomplete" style="width:300px;">
-      <input id="myInput" type="text" name="temp" placeholder="search company">
-      </div>
-        <input type="submit" value="SEARCH">
-      </form>
-   
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item ">
-        <a class="nav-link " href="#"><span class="_demo1_">HOME</span>  </a>
-      </li>
+    
       <li class="nav-item">
         <a class="nav-link" href="#"><span class="_demo1_">PRODUCTS</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><span class="_demo1_">BLOG</span></a>
+        <a class="nav-link" href="#"><span class="_demo1_">ABOUT US</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#"><span class="_demo1_">PRICING</span></a>
+        <a class="nav-link" href="{% url 'Blog' %}"><span class="_demo1_">BLOG</span></a>
       </li>
-      <li><button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style=" font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></li>
-    </ul>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'price' %}"><span class="_demo1_">PRICING</span></a>
+      </li>
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout'  %}">  <button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style="color: ; font-size: 20px;"> <span style="font-weight: bold;">LOG OUT</span> </button></i></a></li>   
+      
+      {% else %}
+
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'signup' %}"><span class="_demo1_">SUBSCRIPTION</span></a>
+      </li>
+
+      <a href="{% url 'login'  %}">  <button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style="color: ; font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></a></li>
+      
+      
+      
+      {% endif %}
   </div>
   </div>
 </nav>

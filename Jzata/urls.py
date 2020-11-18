@@ -7,6 +7,7 @@ from . import views
 from CompanyData import views as view
 from .views import Blog
 from .views import resend_otp
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('base',view.create),

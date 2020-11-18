@@ -45,11 +45,12 @@
     <li class="nav-item">
       <a class="nav-link nav-style" href="#">PRODUCTS</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link nav-style" href="{% url 'Blog' %}">BLOG</a>
-    </li>
+    
     <li class="nav-item">
       <a class="nav-link nav-style" href="#">ABOUT US</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link nav-style" href="{% url 'Blog' %}">BLOG</a>
     </li>
     <li class="nav-item">
       <a class="nav-link nav-style" href="{% url 'price' %}">PRICING</a>
@@ -62,7 +63,7 @@
       {% else %}
 
       <li class="nav-item">
-        <a class="nav-link nav-style" href="{% url 'signup' %}">SUBSCRIBE</a>
+        <a class="nav-link nav-style" href="{% url 'signup' %}">SUBSCRIPTION</a>
       </li>
 
       <a href="{% url 'login'  %}">  <button class="btn " style="margin-top: 2px;"><i class="fa fa-user-circle-o" aria-hidden="true" style="color: ; font-size: 20px;"> <span style="font-weight: bold;">LOG IN</span> </button></i></a></li>
