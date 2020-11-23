@@ -16,7 +16,7 @@ urlpatterns = [
     path('signup',include('Emailotp.urls')),
     path('price',view.page,name="price"),
     path('',views.home,name="home"),
-    path('plane',views.plane,name="plane"),
+    path('plans',views.plans,name="plans"),
     path('gdpr',views.gdpr,name="gdpr"),
     path('privacypolicy',views.privacy,name="privacy"),
     path('service',views.service,name="service"),

@@ -7,7 +7,7 @@ from django.views.generic import ListView
 def home(request):
     return render(request,'home.html')
 
-def plane(request):
+def plans(request):
     return render(request,'plans.html')
 
 def new(request):

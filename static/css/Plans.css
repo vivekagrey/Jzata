@@ -62,9 +62,9 @@
  
 
   .columns:hover {
-    transform: scale(1.04, 1.04);
+    transform: scale(1.01, 1.01);
     transition: 1s;
-    box-shadow: 0 0 15px #007bff;
+    
     z-index: 99
 }
 .container{
@@ -95,14 +95,14 @@
 }
 
 .columns1:hover {
-  transform: scale(1.04, 1.04);
+  transform: scale(1.01, 1.01);
   transition: 1s;
-  box-shadow: 0 0 15px #007bff;
+  
   z-index: 99
 }
 .columns2:hover {
-  transform: scale(1.04, 1.04);
+  transform: scale(1.01, 1.01);
   transition: 1s;
-  box-shadow: 0 0 15px #007bff;
+  
   z-index: 99
 }

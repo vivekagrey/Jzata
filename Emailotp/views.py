@@ -34,7 +34,7 @@ def signup(request):
                     s1=s1.strip()
                     usr.save()
                     user=authenticate(username=request.POST.get('s'),password=request.POST.get('s1'))
-                    return redirect("plane")
+                    return redirect("plans")
                 else:
                     messages.error(request,f'Enter wrong otp')
                     return render(request,'signup.html',{'otp':True ,'usr':usr})

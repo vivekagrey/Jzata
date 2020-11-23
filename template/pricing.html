@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% block extrahead %}
-<!--<link rel="stylesheet" href='{% static "css/Pricing.css" %}' >-->
-<style>
-.shakti
-{
-    background-color: aqua;
-}
+<link rel="stylesheet" href='{% static "css/pricing.css" %}' >
 
-</style>
 {% endblock %}
 
 {% block main_body %}
 
-    <div class="container shakti">
-        <h1 align="center">Pricing </h1>
+<div class="container-fail-gya">
+    <div class="abc">
+        <h1 align="center" id="h1-pricing">Pricing </h1>
         <div class="div2">
-        <a href="{% url 'signup' %}" class="btn btn-outline-primary">Subscribe Now</a>
-    </div>
-        <p class="ptext" style="font-size: 1.5rem;" align="center">Easily upgrade, change plans, or cancel at any time</p>
-        <div class="columns">
+            <a href="{% url 'signup' %}" class="btn btn-info"><span>Subscribe Now &raquo;</span></a>
+        </div>
+        <p class="ptextsuraj" style="font-size: 1.5rem;" align="center">Easily upgrade, change plans, or cancel at any time
+        </p>
+        <div class="columns" id="col1">
             <ul class="price">
                 <li class="header">BASIC </li>
                 <li class="grey">2k /month</li>
@@ -28,11 +33,11 @@
                 <li>..........</li>
                 <li>..........</li>
                 <li>..........</li>
-                
+    
             </ul>
         </div>
-
-        <div class="columns">
+    
+        <div class="columns" id="col2">
             <ul class="price">
                 <li class="header">PRO </li>
                 <li class="grey">3k /month</li>
@@ -40,11 +45,11 @@
                 <li>.............</li>
                 <li>.............</li>
                 <li>.............</li>
-                
+    
             </ul>
         </div>
-
-        <div class="columns">
+    
+        <div class="columns" id="col3">
             <ul class="price">
                 <li class="header">PREMIUM </li>
                 <li class="grey">4k /month</li>
@@ -52,12 +57,11 @@
                 <li>.............</li>
                 <li>.............</li>
                 <li>..............</li>
-                
+    
             </ul>
         </div>
     </div>
 
-    
-
+</div>
 
 {% endblock  %}
