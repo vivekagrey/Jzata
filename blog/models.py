@@ -8,3 +8,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def imageurl(self):
+        try:
+            url=self.img.url
+        except:
+            url=''
+        return url

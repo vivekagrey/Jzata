@@ -65,7 +65,11 @@ def check(request):
     list1=[]
     for i in s1:
         cin=i.cin
-        
+
+        Investor =i.Investor
+
+        Products=i.Products
+
         name=i.name
 
         Website=i.website
@@ -100,48 +104,50 @@ def check(request):
         
         roc=i.Roc
             
-        director_detail=i.director_detail    
+        director_detail=i.director_detail 
+
+        description=i.description                   
+                    
 
     cart={}
-    print(cin)
-        
-    print(name)
-    cart['name']=name
+    cart['description']=description     
+    cart['cin']=cin
     
     cart['website']=Website
-    print(Industry)
+
     cart['Industry'] =Industry
-    print(Headquatars)
+  
     cart['Headquatars']=Headquatars
-    print(Type)
+ 
     cart['Type']=Type
-    print(Founded)
     cart['Founded']=Founded   
-    print(Specialities)
     cart['Specialities']=Specialities    
-    print(Linkedin)
     cart['Linkedin']=Linkedin  
-    print(Domain)
+   
     cart['Domain']=Domain  
-    print(Logo)
     cart['Logo']=Logo  
-    print(Description)
     cart['Description']=Description   
         
-    print(Companyno)
     cart['companyno']=Companyno 
-    print(incorporation_date)
+    
     cart['incorporation_date']=incorporation_date 
-    print(register_address)
     cart['register_address']=register_address  
-    print(Industry_code)
     cart['Industry_code']=Industry_code 
-    print(Company_Registered_Name)
+   
     cart['Company_Registered_Name']=Company_Registered_Name   
-    print(roc)
     cart['roc']=roc        
-    print(director_detail)    
-    cart['director_detail']=director_detail
+    
+
+    ld=director_detail.split(',')  
+    cart['ld']=ld
+
+    l1=Products.split(',')    
+    cart['l1']=l1
+    l2=Investor.split(',') 
+    cart['l2']=l2
+
+        
+
     return render(request,"final_profile.html",cart)
 
 

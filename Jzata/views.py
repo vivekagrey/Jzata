@@ -34,7 +34,7 @@ def resend_otp(request):
             mess=f"hello {usr.first_name},\n your otp is {usr_otp}\n Thanks!"  
 
             send_mail(
-                "welcome to ITScorer - Verify your Email",
+                "welcome to Jzata - Verify your Email",
                 mess,
                 settings.EMAIL_HOST_USER,
                 [usr.email],

@@ -24,9 +24,10 @@
     <div class="card col-sm-6" style="width: 18rem">
 
         <div class="card-body">
+        <img class="card-img-top" src="{{i.imageurl}}" width="200" height="200" alt="Card image cap">
         <h5 class="card-title">{{i.name}}</h5>
-        <p class="card-text"><p>{{i.description |slice:"200"|safe }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text"><p>{{i.description |slice:"200"|safe }}....</p>
+        <a href="#" class="btn btn-primary">Go to link</a>
 
         <br/>
 

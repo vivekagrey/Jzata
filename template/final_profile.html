@@ -380,12 +380,12 @@
 	    		<div class="col">
 	     		 <h4>About Us</h4>
 	     		 <p class="paragraph">
-	     		 	<p><b>Headquarters:-</b> {{Headquatars}}</p><br>
-	     		 	<p><b>Type:-</b> {{Type}}</p><br>
-	     		 	<p><b>Specilities:-</b>{{Specialities}}</p>
-	     		 	<p><b>Company Registered name:-</b>{{Company_Registered_Name}}</p>
-	     		 	<p><b>Director Details</b>{{director_detail}}</p>
-
+	     		 	<p><b>Headquarters </b><br/> {{Headquatars}}</p><br>
+	     		 	<p><b>Type: </b> <br/>{{Type}}</p><br>
+	     		 	<p><b>Specilities  </b><br/>{{Specialities}}</p><br/>
+	     		 	<p><b>Company Registered name </b><br/>{{Company_Registered_Name}}</p><br/>
+					<p><b>Linkedin </b><br/>  {{Linkedin}}  </p><br/>	
+					<p><b><a href="#">Description </a></b> {{description | slice:":100"}}..</p><br/>
 	     		 </p>
 	   			 </div>
 	   			 <div class="vl"></div>
@@ -401,37 +401,57 @@
 
       <!-- <div class="tab-pane fade founded" id="v-pills-founders" role="tabpanel" aria-labelledby="v-pills-founders-tab"><img src="image/client_a.jpg" width="20%" height="20%"><h1>Suraj </h1></div> -->
 
-      <div class="tab-pane fade founded" id="v-pills-noofemployees" role="tabpanel" aria-labelledby="v-pills-noofemployees-tab">
+	  <div class="tab-pane fade founded" id="v-pills-presentcustomers" role="tabpanel" aria-labelledby="v-pills-presentcustomers-tab">
+
+		<div class="container">
+			<div class="row">
+			  <div class="col">
+				
+				  <h4>Present Customers</h4>
+				<p class="paragraph">
+				  
+				</p>
+				  </div>
+				  
+				  
+				 
+		   </div>
+	   </div>
+	</div>
+ 
+	 
+	 
+	 
+	 
+	  <div class="tab-pane fade founded" id="v-pills-noofemployees" role="tabpanel" aria-labelledby="v-pills-noofemployees-tab">
       	
       	<div class="container">
   			<div class="row">
 	    		<div class="col">
-	     		 <h4>No Of Employees</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				  <h4>No Of Employees</h4>
+					<br/>
+					<br/>
+	     		 <p class="paragraph"><h5> Current :</h5> <h5> 51-200 employees</h5>
 	   			 </div>
 	   			 
 
  			</div>
  		</div>
-      </div>
+	  </div>
+	  
+	  
+
 
       <div class="tab-pane fade founded" id="v-pills-presentcustomers" role="tabpanel" aria-labelledby="v-pills-presentcustomers-tab">
 
       	<div class="container">
   			<div class="row">
 	    		<div class="col">
-	     		 <h4>Present Customers</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				  
+					<h4>Present Customers</h4>
+	     		 <p class="paragraph">
+					
+				  </p>
 	   			 </div>
 	   			 
     				
@@ -446,12 +466,7 @@
   			<div class="row">
 	    		<div class="col">
 	     		 <h4>Total Customers</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	     		 <p class="paragraph"> NAN</p>
 	   			 </div>
  			</div>
  		</div>
@@ -463,12 +478,9 @@
   			<div class="row">
 	    		<div class="col">
 	     		 <h4>Products</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	     		 <p class="paragraph">{% for i in l1 %}
+					<li> {{i}} </li>
+					{% endfor %}</p>
 	   			 </div>
 	   			 
     				
@@ -483,12 +495,9 @@
   			<div class="row">
 	    		<div class="col">
 	     		 <h4>Investors</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	     		 <p class="paragraph">{% for i in l2 %}
+					<li> {{i}} </li>
+					{% endfor %}</p>
 	   			 </div>
 	   			
     				
@@ -504,23 +513,22 @@
   			<div class="row">
 	    		<div class="col">
 	     		 <h4>Negative News</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	     		 <p class="paragraph">
+					
+				<h5>Recent no update </h5>
+				  </p>
 	   			 </div>
 	   			 <div class="vl"></div>
     				
    				<div class="col">
       			<h4>Positive News</h4>
-    				<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    				<p class="paragraph">
+						<ul>
+						<li>Drones help Central Railway catch thieves; to now monitor trespassers – Mumbai Mirror, 18 Aug 2020 </li>
+						<li>The Growth Potential For Drones In The Delivery And Logistics Domains – EFY, 04 Aug 2020 </li>
+						<li>Infosys invests in Indian drone startup ideaForge </li>
+						
+						<li>ideaForge launches unique drone buyback offer with benefits up to INR 1.5 lakh along with the industry’s first financing option – sUAS News, 22 Jul </li></p>
     			</div>
  			</div>
  		</div>
@@ -531,13 +539,17 @@
       	<div class="container">
   			<div class="row">
 	    		<div class="col">
-	     		 <h4>Team</h4>
-	     		 <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	     		 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	     		 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	     		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	     		 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	     		 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	     		
+	     		 <p class="paragraph">
+				<h4 align="center">Team</h4>
+				<ul>
+				{% for i in ld %}
+				<li> {{i}} </li>
+				{% endfor %}	
+			</ul>
+				</p>
+
+				  </p>
 	   			 </div>
 	   			 
     				
@@ -590,13 +602,13 @@
 		<div class="container">
 			<div class="row">
 			  <div class="col">
-				<h4>Team</h4>
-				<p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<h4 align="center">Team</h4>
+				<p class="paragraph"> 
+				{% for i in ld %}
+				 {{i}}
+				{% endfor %}	
+
+				</p>
 				  </div>
 				  
 				  
