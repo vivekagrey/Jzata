@@ -144,7 +144,7 @@ def check(request):
     l1=Products.split(',')    
     cart['l1']=l1
     l2=Investor.split(',') 
-    cart['l2']=l2
+    cart['l1']=l2
 
         
 
